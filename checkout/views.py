@@ -8,7 +8,6 @@ from django.utils import timezone
 from bugs.models import Bugs
 import stripe
 
-
 # Create your views here.
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -27,7 +26,7 @@ def checkout(request):
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
-                bugs = get_object_or_404(Bugs, pk=id)
+                bugs = get_object_or_404(Product, pk=id)
                 total += quantity * bugs.price
                 order_line_item = OrderLineItem(
                     order = order, 
@@ -49,7 +48,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
-                return redirect(reverse('bug'))
+                return redirect(reverse('bugs'))
             else:
                 messages.error(request, "Unable to take payment")
         else:
@@ -60,5 +59,4 @@ def checkout(request):
         order_form = OrderForm()
         
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
-                
-            
+       
