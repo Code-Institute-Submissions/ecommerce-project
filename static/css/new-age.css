@@ -15,13 +15,13 @@ body {
 }
 
 a {
-  color: #fdcc52;
+  color: #ffffff;
   -webkit-transition: all .35s;
   transition: all .35s;
 }
 
 a:hover, a:focus {
-  color: #fcbd20;
+  color: #ffffff;
 }
 
 hr {
@@ -43,7 +43,7 @@ h5,
 h6 {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 p {
@@ -67,24 +67,24 @@ section h2 {
   transition: all .35s;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 #mainNav .navbar-brand {
-  color: #fdcc52;
+  color: #ffffff ;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
-  color: #fcbd20;
+  color: #ffffff 
 }
 
 #mainNav .navbar-toggler {
-  font-size: 12px;
+  font-size: 16px;
   padding: 8px 10px;
-  color: #222222;
+  color: #ffffff ;
 }
 
 #mainNav .navbar-nav > li > a {
@@ -95,7 +95,7 @@ section h2 {
 }
 
 #mainNav .navbar-nav > li > a.active {
-  color: #fdcc52 !important;
+  color: #ffffff  !important;
   background-color: transparent;
 }
 
@@ -105,12 +105,12 @@ section h2 {
 
 #mainNav .navbar-nav > li > a,
 #mainNav .navbar-nav > li > a:focus {
-  color: #222222;
+  color: #ffffff ;
 }
 
 #mainNav .navbar-nav > li > a:hover,
 #mainNav .navbar-nav > li > a:focus:hover {
-  color: #fdcc52;
+  color: #ffffff ;
 }
 
 @media (min-width: 992px) {
@@ -137,18 +137,18 @@ section h2 {
     background-color: white;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #222222;
+    color: #ffffff ;
   }
   #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
-    color: #fdcc52;
+    color: #ffffff ;
   }
   #mainNav.navbar-shrink .navbar-nav > li > a,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus {
-    color: #222222;
+    color: #ffffff ;
   }
   #mainNav.navbar-shrink .navbar-nav > li > a:hover,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
-    color: #fdcc52;
+    color: #ffffff ;
   }
 }
 
@@ -399,13 +399,13 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .bg-primary {
-  background: #fdcc52;
+  background: #ffffff;
   background: -webkit-gradient(linear, left top, left bottom, from(#fdcc52), to(#fdc539));
   background: linear-gradient(#fdcc52, #fdc539);
 }
 
 .text-primary {
-  color: #fdcc52;
+  color: #ffffff;
 }
 
 .no-gutter > [class*='col-'] {
@@ -433,6 +433,6 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .btn-xl {
-  font-size: 11px;
+  font-size: 20px;
   padding: 15px 45px;
 }
