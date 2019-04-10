@@ -111,8 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.CaseInsensitiveAuth']
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
+    
 
 LANGUAGE_CODE = 'en-us'
 
@@ -126,12 +125,11 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    )
+)
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -139,5 +137,7 @@ MEDIA_URL = '/media/'
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
