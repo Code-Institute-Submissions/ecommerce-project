@@ -9,3 +9,4 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^password-reset/', include(urls_reset)),
 ]
+

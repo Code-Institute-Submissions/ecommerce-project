@@ -61,29 +61,43 @@
                         </li>
                     {%  else %}
                         <li class="nav-item">
-                        <li><a class="nav-link js-scroll-trigger"href="{% url 'register' %}">Register</a></li>
+                        <li><a class="nav-link js-scroll-trigger"href="{% url 'registration' %}">Register</a></li>
                         </li>
                         <li class="nav-item">
                         <li><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Log In</a></li>
                         </li>
                                 {% endif %}
+                        <li>
+                    <a href="{% url 'view_cart' %}">
+                        <i class="fa fa-shipping-cart"></i> Cart
+                        {% if bugs_count > 0 %}
+                        <label class="badge badge-warning">{{ bugs_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
                       </li>
                     </ul>
                   </div>
                 </div>
               </nav>
-              {% if messages %}
-                    <div class="alert alert-success">
-                        <div class="messages">
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-                <div class="container">
-                    {% block content %} {% endblock %}
-                </div>
+               {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        {% block content %} {% endblock %}
+    </div>
                            
 
    

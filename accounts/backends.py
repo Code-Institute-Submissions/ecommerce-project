@@ -3,10 +3,10 @@ from django.db.models import Q
 
 
 class CaseInsensitiveAuth:
-    
+   
     def authenticate(self, username_or_email=None, password=None):
         """
-        Get an instance of User using the supplied username
+        Get an instance of User using the username
         or email (case insensitive) and verify the password
         """
         # Filter all users by searching for a match by username/ email.
