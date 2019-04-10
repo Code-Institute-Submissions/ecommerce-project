@@ -2,12 +2,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index, logout, login
 from accounts import urls as urls_accounts
+
 from bugs import urls as urls_bugs
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
 from bugs.views import all_bugs
 from home.views import all_index
+from accounts.views import index
 from django.views import static
 from .settings import MEDIA_ROOT
 
