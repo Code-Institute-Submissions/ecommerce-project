@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -23,14 +24,13 @@ def login(request):
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
+            user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
-
             if user:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
 
-                if request.GET and request.GET['next'] !='':
+                if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
                 else:
@@ -55,21 +55,22 @@ def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
-            user_form.save()
+            # user_form.save()
 
-            user = auth.authenticate(request.POST.get('email'),
-                                     password=request.POST.get('password1'))
+            user = User.objects.create_user(
+                username=request.POST['username'],
+                email=request.POST['email'],
+                password=request.POST['password1'])
 
-            if user:
-                auth.login(request, user)
-                messages.success(request, "You have successfully registered")
-                return redirect(reverse('index'))
+            user.save()
+            auth.login(request, user)
+            messages.success(request, "You have successfully registered")
+            return redirect(reverse('index'))
 
-            else:
-                messages.error(request, "unable to log you in at this time!")
+            # else:
+            #     messages.error(request, "unable to log you in at this time!")
     else:
         user_form = UserRegistrationForm()
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
-

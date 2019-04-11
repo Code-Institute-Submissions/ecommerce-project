@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+    <form 
+    id='login' 
+    method="post" 
+    action="{% url 'login' %}?next={{ next }}" 
+    class="accountform" 
+    style="
+        padding: 4%;
+        width: 50%;
+        margin: 0 auto;
+    ">
         <fieldset class="form-group">
             <legend>Login</legend>
             {% csrf_token %}
@@ -13,3 +22,4 @@
         </fieldset>
     </form>
 {% endblock %}
+
