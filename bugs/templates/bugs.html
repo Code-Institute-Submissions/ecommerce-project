@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'index.html' %} {% block content %}
 
 <div class="row row-flex">
     {% for bug in bugs %}
@@ -6,26 +6,24 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
 
         <div class="panel-body">
-            <div class="bug" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <div class="bug" style="background-image: url('{{ MEDIA_URL }}{{ bugs.image }}')"></div>
 
-            <h3>{{ bug.name }}</h3>
+            <h2>{{ bug.name }}</h2>
             <p class="bug-description">{{ bug.description }}</p>
-            <p>{{ bug.price }} </p>
 
 
             <form method="post" action="{% url 'add_to_cart' bug.id %}">
                 {% csrf_token %}
-                <div class="input-group">
-                    <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">
                     <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
+                            <button class="btn btn-success" type="submit">Add to cart</button>
                           </span>
-                </div>
-                <!-- /input-group -->
-
+                    <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Comment</button>
+                          </span>
+                          <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Vote</button>
+                          </span>          
             </form>
-
-
         </div>
     </div>
     {% endfor %}
