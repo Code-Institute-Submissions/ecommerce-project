@@ -1,11 +1,16 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 {% block content %}
-     <center>
-    <div class = "container">
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+    <div class = "container" style="margin-top:1.5%;">
+        <div class="row justify-content-md-center">
+            <div class="col col-4 offset-2">
+                <h1>Welcome {{ user.username }} </h1>
+                <a class="btn btn-primary" href="{% url 'add_features' %}" role="button">Add Feature</a>
+                <a class="btn btn-primary" href="{% url 'add_bugs' %}" role="button">Add Bug</a>
+            </div>
+        </div>
+
+        {% include 'partials/_feature.html' %}
+        {% include 'partials/_bug.html' %}
+        </div>
     </div>
-    </center>
-    
-    
 {% endblock %}
