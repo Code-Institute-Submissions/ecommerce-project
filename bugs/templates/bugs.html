@@ -1,31 +1,5 @@
-{% extends 'index.html' %} {% block content %}
+{% extends 'index.html' %} 
 
-<div class="row row-flex">
-    {% for bug in bugs %}
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-
-        <div class="panel-body">
-            <div class="bug" style="background-image: url('{{ MEDIA_URL }}{{ bugs.image }}')"></div>
-
-            <h2>{{ bug.name }}</h2>
-            <p class="bug-description">{{ bug.description }}</p>
-
-
-            <form method="post" action="{% url 'add_to_cart' bug.id %}">
-                {% csrf_token %}
-                    <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add to cart</button>
-                          </span>
-                    <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Comment</button>
-                          </span>
-                          <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Vote</button>
-                          </span>          
-            </form>
-        </div>
-    </div>
-    {% endfor %}
-</div>
+{% block content %}
+  {% include 'partials/_bug.html' %}
 {% endblock %}
