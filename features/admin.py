@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import features
+from .models import Features
 
 # Register your models here.
-admin.site.register(features)
+admin.site.register(Features)
