@@ -3,7 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-class features(models.Model):
+class Features(models.Model):
+    user = models.ForeignKey(User)
     title = models.CharField(max_length=100, default="")
     description = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -11,14 +12,16 @@ class features(models.Model):
     purchased_feature = models.IntegerField(default=0)
     upvotes = models.IntegerField(default=0)
     price_of_feature = models.DecimalField(max_digits=6, decimal_places=2)
+    status = models.CharField(max_length=254, default='Todo')  # Todo, Pending, Completed
 
     def __str__(self):
         return self.title
 
 
-class featurecomments(models.Model):
+class FeatureComments(models.Model):
+    user = models.ForeignKey(User)
     comments = models.TextField()
-    features = models.ForeignKey(features)
+    features = models.ForeignKey(Features)
 
     def __str__(self):
         return self.comments
