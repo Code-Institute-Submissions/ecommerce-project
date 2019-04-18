@@ -5,6 +5,8 @@ from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from bugs.models import Bugs
+from features.models import Features
 
 
 def index(request):
@@ -47,7 +49,10 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    bugs = Bugs.objects.all()
+    features = Features.objects.all()
+    return render(request, 'profile.html', {
+        "bugs": bugs, 'features': features})
 
 
 def register(request):
@@ -74,8 +79,10 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
-    
+
+
 def user_profile(request):
     """The user's profile page"""
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})    
+    userss = User.objects.get(email=request.user.email)
+    return render(request, 'profie.html', {"profile": userss})  
+
