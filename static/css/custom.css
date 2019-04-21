@@ -1,20 +1,11 @@
-body {
-    font-family: Arial;
-    padding-top: 50px;
-}
-
 footer {
-    margin-top: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
-}
-
-.icon-bar {
-    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .accountform {
-    padding-top: 20px;
+    padding: 4%;
+    width: 50%;
+    margin: 50px auto;
 }
