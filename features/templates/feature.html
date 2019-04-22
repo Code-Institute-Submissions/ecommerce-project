@@ -23,9 +23,9 @@
                             <p class="card-text">{{ feature.description }}</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin:1%">
                         <div class="col mb-3 col-4">
-                            <form action="{% url 'comment_feature' feature.id%}" method="post">
+                            <form action="{% url 'comment_feature' feature.id %}" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Comment</label>
@@ -36,9 +36,11 @@
                             </form>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin:1%">
                         <div class="col">
-                            <div>Comments</div>
+                            <div>
+                                <h3>Comments</h3>
+                            </div>
                             {% for comment in comments%}
                             <div class="card" style="margin-bottom: 0.5%">
                                 <div class="card-body">

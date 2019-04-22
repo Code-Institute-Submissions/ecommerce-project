@@ -6,7 +6,21 @@ from .models import Features, FeatureComments
 
 def all_features(request):
     features = Features.objects.all()
-    return render(request, "features.html", {'features': features})
+    return render(request, "features.html", {'features': features, 'all_features': True})
+
+
+def vote(request, feature_id):
+    feature = get_object_or_404(Features, pk=feature_id)
+    feature.upvotes += 1
+    feature.save()
+    return redirect("features")
+
+
+def delete(request, feature_id):
+    feature = get_object_or_404(Features, pk=feature_id)
+    if feature.user.id == request.user.id:
+        feature.delete()
+    return redirect("features")
 
 
 def comment(request, feature_id):
@@ -18,15 +32,17 @@ def comment(request, feature_id):
             user=user_id,
             features=features,
             comments=comment
-            )
+        )
 
-        return redirect("/features/"+str(feature_id))
+        return redirect("/features/" + str(feature_id))
     return redirect('index')
 
 
 def one_feature(request, feature_id):
     feature = get_object_or_404(Features, pk=feature_id)
     comments = FeatureComments.objects.all().filter(features=feature)
+    feature.views += 1
+    feature.save()
     return render(request, "feature.html", {
         "feature": feature, "comments": comments})
 
@@ -43,5 +59,16 @@ def add_feature(request):
             description=description,
             price_of_feature=price_of_feature)
         new_feature.save()
-        return redirect('/features/'+str(new_feature.id))
+        return redirect('/features/' + str(new_feature.id))
     return render(request, 'add_feature.html')
+
+
+def edit(request, feature_id):
+    feature = get_object_or_404(Features, pk=feature_id)
+    if request.method == 'POST' and feature.user.id == request.user.id:
+        feature.title = request.POST['title']
+        feature.description = request.POST['description']
+        feature.price_of_feature = request.POST['price']
+        feature.save()
+        return redirect('/features/')
+    return render(request, 'edit_feature.html', context={'feature': feature})
