@@ -7,8 +7,11 @@ class Bugs(models.Model):
     name = models.CharField(max_length=254, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    views = models.IntegerField(default=0)
+    upvotes = models.IntegerField(default=0)
     image = models.ImageField(upload_to='images')
-    status = models.CharField(max_length=254, default='Todo')  # Todo, Pending, Completed
+    # Todo, Pending, Completed
+    status = models.CharField(max_length=254, default='Todo')
 
     def __str__(self):
         return self.name
