@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class = "container" style="margin-top:1.5%;">
-        <div class="row center">
+<section class="container">
+    <div class="row center">
 
-                <div class="col-6 offset-3">
-                        <p>Add Bug</p>
-                <form action="{% url 'add_bugs' %}" method="post">
-                    {% csrf_token %}
+        <div class="col-6 offset-3">
+            <p>Add Bug</p>
+            <form action="{% url 'add_bugs' %}" method="post">
+                {% csrf_token %}
 
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter bug name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Price</label>
-                        <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Image</label>
-                        <input name='img' type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter bug name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input type="number" name="price" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter price">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1"
+                        rows="6"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Image</label>
+                    <input name='img' type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
     </div>
+</section>
 {% endblock %}
