@@ -61,8 +61,8 @@ section h2 {
 }
 
 #mainNav {
-  border-color: rgba(34, 34, 34, 0.05);
-  background-color: white;
+  border-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-transition: all .35s;
   transition: all .35s;
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
@@ -85,6 +85,7 @@ section h2 {
   font-size: 16px;
   padding: 8px 10px;
   color: #ffffff ;
+  background-color: rgba(100, 100, 100, 0.5);
 }
 
 #mainNav .navbar-nav > li > a {
@@ -115,8 +116,8 @@ section h2 {
 
 @media (min-width: 992px) {
   #mainNav {
-    border-color: transparent;
-    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   #mainNav .navbar-brand {
     color: fade(white, 70%);
@@ -133,8 +134,8 @@ section h2 {
     color: white;
   }
   #mainNav.navbar-shrink {
-    border-color: rgba(34, 34, 34, 0.1);
-    background-color: white;
+    border-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   #mainNav.navbar-shrink .navbar-brand {
     color: #ffffff ;
@@ -155,8 +156,8 @@ section h2 {
 header.masthead {
   position: relative;
   width: 100%;
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 60%;
+  padding-bottom: 40%;
   color: white;
   background: url("../img/bg-pattern.png"), #7b4397;
   background: url("../img/bg-pattern.png"), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
@@ -200,6 +201,14 @@ header.masthead .device-container .screen img {
   header.masthead .device-container {
     max-width: 325px;
   }
+}
+
+.centralize {
+  text-align: center;
+}
+
+.cart-total {
+  padding-top: 50px;
 }
 
 section.download {
@@ -421,8 +430,8 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
   color: white;
-  border-color: #fdcc52;
-  background-color: #fdcc52;
+  border-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .btn {
