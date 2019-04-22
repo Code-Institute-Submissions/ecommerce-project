@@ -1,12 +1,16 @@
 <section class="container">
 
-  <h1>Features</h1>
+  <h1>{% if profile %}My {% endif %}Features</h1>
+  {% if not features %}
+  <p>No Features</p>
+  {% else %}
+  {% if not all_features %}
   <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseFeatures"
     aria-expanded="false" aria-controls="collapseFeatures">
   </button>
+  {% endif %}
 
-  <div class="row row-flex collapse" id="collapseFeatures">
-
+  <div class="row row-flex {% if not all_features %}collapse" id="collapseFeatures" {% else %}" {% endif %}>
     {% for feature in features %}
     {% if feature.status == 'Todo'%}
     <div class="card border-danger mb-3" style="margin:1%">
@@ -23,18 +27,53 @@
               {% elif feature.status == 'Completed'%}
               <div class="card-header bg-success">
                 {% endif %}
-                <h3 class="text-white">Status: {{ feature.status }}</h3>
+                <h4 class="text-white">Status: {{ feature.status }}
+                  {% if feature.user.id == request.user.id %} |
+                  <a href="{% url 'edit_feature' feature.id%}"><i class=" far fa-edit"></i></a>
+                  <a href="{% url 'del_feature' feature.id%}"><i class=" far fa-trash-alt"></i></a>
+                  {% endif %}
+                </h4>
               </div>
               <div class="card-body">
                 <h3 class="card-text">{{ feature.title }}</h3>
                 <p class="card-text">{{ feature.description }}</p>
-
+                <p> <i class="far fa-eye"></i> {{ feature.views }} <i class="fas fa-check"></i> {{ feature.upvotes }}
+                </p>
                 <a class="btn btn-primary" href="{% url 'one_feature' feature.id%}" role="button">Comment</a>
-                <a class="btn btn-primary" href="#" role="button">Vote</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                  {% if feature.user.id == request.user.id %}hidden{% endif %}>
+                  Vote
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upvoting 🙌</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>We promise always to spend at least 70% developing these features for payment of €5.00.</p>
+                        <p>Add this feature to your cart now to proceed</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{% url 'vote_feature' feature.id%}">
+                          <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i>Add</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
             {% endfor %}
           </div>
+          {% endif %}
 </section>
+
  

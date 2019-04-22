@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from cart.models import Cart
 
 
 class Features(models.Model):
@@ -12,7 +13,9 @@ class Features(models.Model):
     purchased_feature = models.IntegerField(default=0)
     upvotes = models.IntegerField(default=0)
     price_of_feature = models.DecimalField(max_digits=6, decimal_places=2)
-    status = models.CharField(max_length=254, default='Todo')  # Todo, Pending, Completed
+    # Todo, Pending, Completed
+    status = models.CharField(max_length=254, default='Todo')
+    cart = models.ManyToManyField(Cart)
 
     def __str__(self):
         return self.title

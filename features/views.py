@@ -1,21 +1,27 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Features, FeatureComments
+from cart.models import Cart
+from cart.views import cart_items
 
-# Create your views here.
 
-
+@login_required
 def all_features(request):
     features = Features.objects.all()
-    return render(request, "features.html", {'features': features, 'all_features': True})
+    return render(request, "features.html", {'features': features, 'all_features': True, "len_items": cart_items(request)})
 
 
+@login_required
 def vote(request, feature_id):
     feature = get_object_or_404(Features, pk=feature_id)
+    cart = Cart.objects.get(user=request.user)
     feature.upvotes += 1
+    feature.cart.add(cart)
     feature.save()
     return redirect("features")
 
 
+@login_required
 def delete(request, feature_id):
     feature = get_object_or_404(Features, pk=feature_id)
     if feature.user.id == request.user.id:
@@ -23,6 +29,7 @@ def delete(request, feature_id):
     return redirect("features")
 
 
+@login_required
 def comment(request, feature_id):
     features = get_object_or_404(Features, pk=feature_id)
     user_id = request.user
@@ -38,15 +45,17 @@ def comment(request, feature_id):
     return redirect('index')
 
 
+@login_required
 def one_feature(request, feature_id):
     feature = get_object_or_404(Features, pk=feature_id)
     comments = FeatureComments.objects.all().filter(features=feature)
     feature.views += 1
     feature.save()
     return render(request, "feature.html", {
-        "feature": feature, "comments": comments})
+        "feature": feature, "comments": comments, "len_items": cart_items(request)})
 
 
+@login_required
 def add_feature(request):
     if request.method == 'POST':
         title = request.POST['title']
@@ -63,6 +72,7 @@ def add_feature(request):
     return render(request, 'add_feature.html')
 
 
+@login_required
 def edit(request, feature_id):
     feature = get_object_or_404(Features, pk=feature_id)
     if request.method == 'POST' and feature.user.id == request.user.id:

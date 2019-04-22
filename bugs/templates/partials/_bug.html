@@ -1,5 +1,5 @@
 <section class="container">
-  <h1>Bugs</h1>
+  <h1>{% if profile %}My {% endif %}Bugs</h1>
   {% if not bugs %}
   <p>No Bugs</p>
   {% else %}
@@ -9,7 +9,7 @@
   </button>
   {% endif %}
 
-  <div class="row row-flex {% if not all_bugs %}collapse" id="collapseBugs" {% else %}" {% endif %}>
+  <div class="row row-flex {% if not all_bugs %}collapse" id="collapseBugs" {% else %} {% endif %}>
     {% for bug in bugs %}
     {% if bug.status == 'Completed'%}
     <div class="card border-success mb-3" style="margin:1%">
@@ -28,8 +28,8 @@
                 {% endif %}
                 <h4 class="text-white">Status: {{ bug.status }}
                   {% if bug.author.id == request.user.id %} |
-                  <a href="{% url 'edit_bug' bug.id%}""><i class=" far fa-edit"></i></a>
-                  <a href="{% url 'del_bug' bug.id%}""><i class=" far fa-trash-alt"></i></a>
+                  <a href="{% url 'edit_bug' bug.id%}"><i class=" far fa-edit"></i></a>
+                  <a href="{% url 'del_bug' bug.id%}"><i class=" far fa-trash-alt"></i></a>
                   {% endif %}
                 </h4>
               </div>
@@ -38,7 +38,8 @@
                 <p class="card-text">{{ bug.description }}</p>
                 <p> <i class="far fa-eye"></i> {{ bug.views }} <i class="fas fa-check"></i> {{ bug.upvotes }}</p>
                 <a class="btn btn-primary" href="{% url 'one_bugs' bug.id%}" role="button">Comment</a>
-                <a class="btn btn-primary" href="{% url 'vote_bug' bug.id%}" role="button">Vote</a>
+                <a class="btn btn-primary" href="{% url 'vote_bug' bug.id%}" role="button"
+                  {% if bug.author.id == request.user.id %}hidden {% endif %}>Vote</a>
               </div>
             </div>
             {% endfor %}
