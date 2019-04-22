@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container">
+    <div class="row center">
+
+        <div class="col-6 offset-3">
+            <p>Edit Bug</p>
+            <form action="{% url 'edit_bug' bug.id %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Update bug name" value="{{bug.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input type="number" name="price" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Update price" value="{{bug.price}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="6"
+                        value="{{bug.description}}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Image</label>
+                    <input name='img' type="file" class="form-control-file" id="exampleFormControlFile1"
+                        value="{{bug.image}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
