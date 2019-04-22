@@ -1,35 +1,49 @@
-<div class="container" style="margin-top:1.5%;">
+<section class="container">
 
-    <h2>Features</h2>
-        <div class="row row-flex" >
+  <h1>Features</h1>
+  {% if not features %}
+  <p>No Features</p>
+  {% else %}
+  {% if not all_features %}
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseFeatures"
+    aria-expanded="false" aria-controls="collapseFeatures">
+  </button>
+  {% endif %}
 
-          {% for feature in features %}
-            {% if feature.status == 'Todo'%}
-              <div class="card border-danger mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
+  <div class="row row-flex {% if not all_features %}collapse" id="collapseFeatures" {% else %} {% endif %}>
+    {% for feature in features %}
+    {% if feature.status == 'Todo'%}
+    <div class="card border-danger mb-3" style="margin:1%">
+      {% elif feature.status == 'Pending'%}
+      <div class="card border-warning mb-3" style="margin:1%">
+        {% elif feature.status == 'Completed'%}
+        <div class="card border-success mb-3" style="margin:1%">
+          {% endif %}
+          <div class="feature" style="background-image: url('{{ MEDIA_URL }}{{ features.image }}')"></div>
+          {% if feature.status == 'Todo'%}
+          <div class="card-header bg-danger">
             {% elif feature.status == 'Pending'%}
-              <div class="card border-warning mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
-            {% elif feature.status == 'Completed'%}
-              <div class="card border-success mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
-            {% endif %}
-                <div class="feature" style="background-image: url('{{ MEDIA_URL }}{{ features.image }}')"></div>
-                {% if feature.status == 'Todo'%}
-                  <div class="card-header bg-danger">
-                {% elif feature.status == 'Pending'%}
-                  <div class="card-header bg-warning">
-                {% elif feature.status == 'Completed'%}
-                  <div class="card-header bg-success">
+            <div class="card-header bg-warning">
+              {% elif feature.status == 'Completed'%}
+              <div class="card-header bg-success">
                 {% endif %}
-                  <h3 class="text-white">Status: {{ feature.status }}</h3>
-                </div>
-                <div class="card-body">
-                  <h3 class="text-white">{{ feature.name }}</h3>
-                  <p class="card-text">{{ feature.description }}</p>
-
-                  <a class="btn btn-primary" href="{% url 'one_feature' feature.id%}" role="button">Comment</a>
-                  <a class="btn btn-primary" href="#" role="button">Vote</a>
-                </div>
+                <h4 class="text-white">Status: {{ feature.status }}
+                  {% if feature.user.id == request.user.id %} |
+                  <a href="{% url 'edit_feature' feature.id%}""><i class=" far fa-edit"></i></a>
+                  <a href="{% url 'del_feature' feature.id%}""><i class=" far fa-trash-alt"></i></a>
+                  {% endif %}
+                </h4>
               </div>
-            
+              <div class="card-body">
+                <h3 class="card-text">{{ feature.title }}</h3>
+                <p class="card-text">{{ feature.description }}</p>
+                <p> <i class="far fa-eye"></i> {{ feature.views }} <i class="fas fa-check"></i> {{ feature.upvotes }}
+                </p>
+                <a class="btn btn-primary" href="{% url 'one_feature' feature.id%}" role="button">Comment</a>
+                <a class="btn btn-primary" href="{% url 'vote_feature' feature.id%}" role="button">Vote</a>
+              </div>
+            </div>
             {% endfor %}
-        </div>
-      </div>
+          </div>
+          {% endif %}
+</section>

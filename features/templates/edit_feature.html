@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container">
+    <div class="row center">
+        <div class="col-6 offset-3">
+            <p>Edit Feature</p>
+            <form action="{% url 'edit_feature' feature.id %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" name="title" class="form-control" placeholder="Update feature name"
+                        value="{{feature.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input type="number" name="price" class="form-control" placeholder="Update price"
+                        value="{{feature.price_of_feature}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea name="description" class="form-control" rows="6" placeholder="Update description"
+                        value="{{feature.description}}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
