@@ -10,7 +10,7 @@ from search import urls as urls_search
 from checkout import urls as urls_checkout
 from cart.views import view_cart, add_to_cart, adjust_cart
 from bugs.views import all_bugs
-from home.views import all_index
+from home.views import all_index, community, graph
 from accounts.views import index,  logout, login, register, user_profile
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -19,10 +19,11 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', all_index, name='index'),
-    url(r'^accounts/logout/$', logout, name="logout"),
-    url(r'^accounts/login/$', login, name="login"),
-    # url(r'^$', all_bugs, name='bugs'),
+    # url(r'^accounts/logout/$', logout, name="logout"),
+    # url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^community$', community, name='community'),
+    url(r'^graph$', graph, name='graph'),
     url(r'^bugs/', include(urls_bugs)),
     url(r'^features/', include(urls_features)),
     url(r'^cart/', include(urls_cart)),

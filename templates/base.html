@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
   <!-- Custom styles -->
   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
@@ -52,6 +53,113 @@
   <script type="text/javascript" src="{% static '/js/queue.min.js' %}"></script>
   <script type="text/javascript" src="{% static '/js/graph.js' %}"></script>
   <script src="{% static 'js/new-age.min.js' %}"></script>
+
+<script>
+
+function loadGraph(){
+      var pie = {}
+      var bar = {}
+
+      $.ajax({
+        method: "GET",
+        url: '/graph',
+        success: function(data) {
+            d = JSON.parse(data)
+            pie = d.pie
+            bar = d.bar
+            loadPie()
+            loadBar()
+        },
+        error: function(error_data) {
+            console.log(error_data)
+        }
+    })
+function loadPie(){
+  var ctx = document.getElementById('pie').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: pie.label,
+        datasets: [{
+            label: 'bugs',
+            data: pie.data,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+  });
+}
+
+
+function loadBar(){
+  var ctx = document.getElementById('bar').getContext('2d');
+  var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: bar.label,
+        datasets: [{
+            label: 'bugs',
+            data: bar.data,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+  });
+}
+}
+
+if(window.location.pathname == '/community'){
+    loadGraph()
+}
+  </script>
 
 </body>
 
