@@ -155,8 +155,10 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
         
                           To install stripe
          
-    1. 
-    2. 
+    1. Open terminal in cloud9
+    2. Then type sudo pip3 install stripe
+    3. wait for stripe to install 
+    4. Type 
     
     
                          To install django 1.11
