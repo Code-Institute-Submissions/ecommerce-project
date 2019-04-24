@@ -1,28 +1,30 @@
+from django.contrib.auth.decorators import login_required 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Bugs, Comments
+from cart.views import cart_items
 
 # Create your views here.
 
-
+@login_required
 def all_bugs(request):
     bugs = Bugs.objects.all()
-    return render(request, "bugs.html", {"bugs": bugs, 'all_bugs': True})
+    return render(request, "bugs.html", {"bugs": bugs, 'all_bugs': True,"len_items": cart_items(request)})
 
-
+@login_required
 def vote(request, bug_id):
     bug = get_object_or_404(Bugs, pk=bug_id)
     bug.upvotes += 1
     bug.save()
     return redirect("bugs")
 
-
+@login_required
 def delete(request, bug_id):
     bug = get_object_or_404(Bugs, pk=bug_id)
     if bug.author.id == request.user.id:
         bug.delete()
     return redirect("bugs")
 
-
+@login_required
 def comment(request, bug_id):
     bug = get_object_or_404(Bugs, pk=bug_id)
     user_id = request.user
@@ -36,7 +38,7 @@ def comment(request, bug_id):
         return redirect('/bugs/'+str(bug_id))
     return redirect('index')
 
-
+@login_required
 def one_bug(request, bug_id):
     bug = get_object_or_404(Bugs, pk=bug_id)
     comments = Comments.objects.all().filter(bug_id=bug)
@@ -44,7 +46,7 @@ def one_bug(request, bug_id):
     bug.save()
     return render(request, "bug.html", {"bug": bug, "comments": comments})
 
-
+@login_required
 def add_bug(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -62,7 +64,7 @@ def add_bug(request):
         return redirect('/bugs/' + str(new_bug.id))
     return render(request, 'add_bug.html')
 
-
+@login_required
 def edit(request, bug_id):
     bug = get_object_or_404(Bugs, pk=bug_id)
     if request.method == 'POST' and bug.author.id == request.user.id:
