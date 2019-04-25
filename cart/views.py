@@ -24,8 +24,9 @@ def view_cart(request):
     total = amt * 100
     len_items = len(features)
     key = settings.STRIPE_PUBLISHABLE
-    return render(request, "mycart.html", context={"items": features, "total": total, "amt": amt, "len_items": len_items, "key": key})
-
+    return render(request, "mycart.html", context={"items": features, "total": total, "amt": amt, "len_items": len_items,
+    "key": key, "view_cart_selected":"navbar-text-bold" })
+    
 
 @login_required
 def del_cart_item(request, item_id):

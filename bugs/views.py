@@ -7,8 +7,8 @@ from cart.views import cart_items
 
 @login_required
 def all_bugs(request):
-    bugs = Bugs.objects.all()
-    return render(request, "bugs.html", {"bugs": bugs, 'all_bugs': True,"len_items": cart_items(request)})
+    bugs = Bugs.objects.all().order_by("name") # Sort by created date
+    return render(request, "bugs.html", {"bugs": bugs, 'all_bugs': True,"len_items": cart_items(request),"bugs_selected":"navbar-text-bold"})
 
 @login_required
 def vote(request, bug_id):
@@ -52,7 +52,8 @@ def add_bug(request):
         name = request.POST['name']
         description = request.POST['description']
         price = request.POST['price']
-        img = request.POST['img']
+        img = request.POST['img'] 
+        # TODO: Add created Date
         user_id = request.user
         new_bug = Bugs(
             author=user_id,

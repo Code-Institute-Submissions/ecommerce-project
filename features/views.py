@@ -6,9 +6,9 @@ from cart.views import cart_items
 
 
 @login_required
-def all_features(request):
-    features = Features.objects.all()
-    return render(request, "features.html", {'features': features, 'all_features': True, "len_items": cart_items(request)})
+def all_features(request): 
+    features = Features.objects.all().order_by("description") # date/time
+    return render(request, "features.html", {'features': features, 'all_features': True, "len_items": cart_items(request),"features_selected":"navbar-text-bold"})
 
 
 @login_required
