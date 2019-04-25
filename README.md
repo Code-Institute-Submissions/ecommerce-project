@@ -142,15 +142,15 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
         
     1. I opened a terminal
     2. Then I typed in sudo pip3 install django==1.11
-    3. It then installed
-    2.     
+    3. It then installed the packages
+    2. I then typed in pip freeze > requirements.txt to save changed made    
     
                      To set up a requirements.txt file
          
         
     1. I opened a terminal
-    2. Then I typed in sudo pip3 install django==1.11
-    3. It then installed
+    2. Then I typed in
+    3. 
 
         
                           To install stripe
@@ -158,14 +158,15 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     1. Open terminal in cloud9
     2. Then type sudo pip3 install stripe
     3. wait for stripe to install 
-    4. Type 
+    4. Then i typed in "pip3 freeze > requirments.txt" 
     
     
                          To install django 1.11
     
     1. I opened a terminal
     2. Then I typed in sudo pip3 install django==1.11
-    3. It then installed.
+    3. It then installed the packages
+    4. Then i typed in "pip3 freeze > requirments.txt" 
     
     
     
