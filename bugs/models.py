@@ -9,7 +9,7 @@ class Bugs(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     views = models.IntegerField(default=0)
     upvotes = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images',blank=True)
     # Todo, Pending, Completed
     status = models.CharField(max_length=254, default='Todo')
 
