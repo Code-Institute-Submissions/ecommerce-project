@@ -4,7 +4,7 @@ This project is a website that has been created which is a mutipage site.
 I have created a multi-page website with a home page and register and login page for users to register aswell
 as login to acces bugs, a cart and a profile.
 
-[Here is a link to the live version of my project ]()
+[Here is a link to the live version of my project ](https://ecommerce-project-2019.herokuapp.com/)
 
 #  UX 
 
