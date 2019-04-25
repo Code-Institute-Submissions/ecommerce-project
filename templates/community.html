@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <canvas id="pie" width="400" height="400"></canvas>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <canvas id="bar" width="400" height="400"></canvas>
+<div class="background-image">
+    <section class="container background-white">
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <canvas id="pie" width="400" height="400"></canvas>
             </div>
-    </div>
-</section>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <canvas id="bar" width="400" height="400"></canvas>
+                </div>
+        </div>
+    </section>
+</div>
 {% endblock %}

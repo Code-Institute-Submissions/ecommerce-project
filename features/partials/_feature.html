@@ -1,3 +1,4 @@
+<div class="background-image">
 <section class="container">
 
   <h1>{% if profile %}My {% endif %}Features</h1>
@@ -10,7 +11,8 @@
   </button>
   {% endif %}
 
-  <div class="row row-flex {% if not all_features %}collapse" id="collapseFeatures" {% else %}" {% endif %}>
+  
+  <div class="row row-flex {% if not all_features %}collapse" id="collapseFeatures" {% else %} {% endif %}>
     {% for feature in features %}
     {% if feature.status == 'Todo'%}
     <div class="card border-danger mb-3" style="margin:1%">
@@ -75,5 +77,6 @@
           </div>
           {% endif %}
 </section>
+</div>
 
  

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="background-image">
 <section class="container">
+     <h1>{% if profile %}My {% endif %}Comments</h1>
     {% if bug.status == 'Todo'%}
     <div class="card border-danger mb-3" style="max-width: 35rem; margin:1%">
         {% elif bug.status == 'Pending'%}
@@ -54,4 +56,5 @@
                 </div>
 
 </section>
+</div>
 {% endblock %}

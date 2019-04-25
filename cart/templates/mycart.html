@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="background-image">
 <section class="container">
 
     {% if not items %}
@@ -12,7 +13,7 @@
         <div class="card border-info mb-3" style="margin:1%">
             <div class="card-header bg-info">
                 <h4 class="text-white">Status: {{ item.status }}
-                    <a href="{% url 'del_cart_item' item.id%}""><i class=" far fa-trash-alt"></i></a>
+                    <a href="{% url 'del_cart_item' item.id %}"><i class="far fa-trash-alt"></i></a>
                 </h4>
             </div>
             <div class="card-body">
@@ -29,9 +30,10 @@
         <form action="{% url 'charge' total %}" method="post">
             {% csrf_token %}
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ key }}"
-                data-description="Noelle ECommerce" data-amount="{{ total }}" data-locale="auto" data-currency="EUR">
+                data-description=" Ecommerce" data-amount="{{ total }}" data-locale="auto" data-currency="EUR">
                 </script>
         </form>
     </div>
 </section>
+</div>
 {% endblock %}
