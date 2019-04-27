@@ -1,4 +1,4 @@
-<div class="background-image">
+<div class="{{bg_img}}">
 <section class="container">
   
     <h1>{% if profile %}My {% endif %}Bugs</h1>
@@ -14,11 +14,11 @@
 
           {% for bug in bugs %}
             {% if bug.status == 'Completed'%}
-              <div class="card border-success mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
+              <div class="card border-success mb-3" style="max-width: 20rem; min-width: 20rem; margin:1%">
             {% elif bug.status == 'Pending'%}
-              <div class="card border-warning mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
+              <div class="card border-warning mb-3" style="max-width: 20rem; min-width: 20rem; margin:1%">
             {% elif bug.status == 'Todo'%}
-              <div class="card border-danger mb-3" style="max-width: 30rem; min-width: 30rem; margin:1%">
+              <div class="card border-danger mb-3" style="max-width: 20rem; min-width: 20rem; margin:1%">
             {% endif %}
                 <div class="bug" style="background-image: url('{{ MEDIA_URL }}{{ bugs.image }}')"></div>
                 {% if bug.status == 'Completed'%}

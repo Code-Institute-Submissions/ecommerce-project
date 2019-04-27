@@ -8,7 +8,13 @@ from cart.views import cart_items
 @login_required
 def all_bugs(request):
     bugs = Bugs.objects.all().order_by("name") # Sort by created date
-    return render(request, "bugs.html", {"bugs": bugs, 'all_bugs': True,"len_items": cart_items(request),"bugs_selected":"navbar-text-bold"})
+    return render(request, "bugs.html", {
+        "bugs": bugs,
+        'all_bugs': True,
+        "len_items": cart_items(request),
+        "bugs_selected":"navbar-text-bold",
+        'bg_img':'background-image'
+        })
 
 @login_required
 def vote(request, bug_id):

@@ -11,7 +11,7 @@ import json
 def all_index(request):
     """This is a  view that displays the index page"""
 
-    return render(request, "index.html")
+    return render(request, "index.html", {'index_selected': 'navbar-text-bold'})
 
 def graph(request):
     bugs = Bugs.objects.all()
@@ -40,4 +40,4 @@ def graph(request):
     return HttpResponse(json.dumps(data))
 
 def community(request):
-    return render(request, 'community.html')
+    return render(request, 'community.html', {'community_selected': 'navbar-text-bold'})

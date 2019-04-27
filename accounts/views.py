@@ -47,8 +47,11 @@ def login(request):
     else:
         user_form = UserLoginForm()
 
-    args = {'user_form': user_form, 'next': request.GET.get(
-        'next', '')}
+    args = {
+        'user_form': user_form,
+        'next': request.GET.get('next', ''),
+        'login_selected': 'navbar-text-bold'
+        }
     return render(request, 'login.html', args)
 
 
@@ -59,7 +62,12 @@ def profile(request):
     bugs = Bugs.objects.filter(author=request.user)
     features = Features.objects.filter(user=request.user)
     return render(request, 'profile.html', {
-        "bugs": bugs, 'features': features, 'profile': True, "len_items": cart_items(request)})
+        "bugs": bugs,
+        'features': features,
+        'profile': True,
+        "len_items": cart_items(request),
+        'profile_selected': 'navbar-text-bold',
+        })
 
 
 def register(request):
@@ -85,7 +93,10 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
 
-    args = {'user_form': user_form}
+    args = {
+        'user_form': user_form,
+        'register_selected': 'navbar-text-bold'
+        }
     return render(request, 'register.html', args)
 
 
