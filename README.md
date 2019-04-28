@@ -136,27 +136,37 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     3. Press Home on the navbar from any of the three pages and it will bring you back to the homepage.
     
 
+                         To create a project
+     
+        
+    1. I opened a terminal
+    2. Then I typed in "django-admin startproject ecommerce-project ."
+    3. A project was then created
+    
                 
                          To create an application 
      
         
     1. I opened a terminal
-    2. Then I typed in sudo pip3 install django==1.11
-    3. It then installed the packages
-    2. I then typed in pip freeze > requirements.txt to save changed made    
+    2. Then I typed in "sudo pip3 install startapp home"
+    3. A home application was then created.
     
-                     To set up a requirements.txt file
-         
+    
+                         To install dj-database-url
+     
         
     1. I opened a terminal
-    2. Then I typed in
-    3. 
+    2. I typed in "sudo pip3 install dj-database-url"
+    3. Then I typed in "sudo pip3 install psycopg"
+    4. pip3 freeze > requirements.txt
+    
+  
 
         
                           To install stripe
          
     1. Open terminal in cloud9
-    2. Then type sudo pip3 install stripe
+    2. Then type "sudo pip3 install stripe"
     3. wait for stripe to install 
     4. Then i typed in "pip3 freeze > requirments.txt" 
     
@@ -179,22 +189,14 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     4. It came back as an disallowedhost so i copied the link given in the server page.
     5. I opened up settings.py in ecommerce folder and put the link into allowed hosts and saved it.
     6. I  reran the open link and it came back as the message it worked so I knew it was now succesfully running.
+    
  
 #### Automated Testing
-
-Automated testing using django included these tests  
-
-In the terminal I ran my project locally by opening the terminal and the typing in python3 app.py to run the application and this would run my code.
 
 
        
 ### Deployment of my project
 
-My Deployment was done by opening a terminal and then by using the code git status first followed git add (I put in my file or image) git commit -m "message on what the update was" and the git push to the master branch followed by my username and password.
-
-I deployed my page from github through github pages. I went to settings in my github repository and scrolled down to Github pages title and changed my source from disabled to master branch and clicked save. now my website has been deployed.
-
-Heroku was used also to deploy my project i created an new application and called it happy cooking.
 
 ### Credit
 
