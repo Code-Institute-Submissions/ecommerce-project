@@ -170,5 +170,3 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
-django_heroku.settings(locals())
