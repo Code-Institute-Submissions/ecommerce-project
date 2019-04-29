@@ -135,6 +135,8 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     2. This will redirect you back to the home page.
     3. Press Home on the navbar from any of the three pages and it will bring you back to the homepage.
     
+    
+    
 
                          To create a project
      
@@ -193,9 +195,82 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
  
 #### Automated Testing
 
+## command line
+        
+        
 
        
 ### Deployment of my project
+
+                    deployment of project through github 
+                
+    1. Go to the terminal 
+    2. Typed in git add "filename of what you want to push" and press enter key
+    3. Typed in commit -m "type in the message that I would explain about the commit in quotations"
+    4. Repeat if neccessary for more files 
+    5. Typed in  git push.
+    6. Typed in username for github
+    7. Typed in password for guthub 
+    8. files are now pushed to github
+
+
+                    
+                   
+                   deployment of page through github pages
+                   
+                    
+                            
+    1.Go to the github repository of happy cooking
+    2. Then click on settings up on the right handside of the screen under the watch button
+    3. Scroll down to the Github Pages
+    4. In the container there is a source heading and a option button that has the word "none" with a little arrow pointing down the right
+    5. Click on this and it will give you three options master branch, master branch/docs folder or none.
+    6. click the master branch.
+                                  
+                                  
+                  
+                  
+                  
+                            creating up herokua app
+            
+    1. Log in using username and password
+    2. In the personal page click the "NEW" button
+    3. Click "Create new app"
+    4. This brought me to Create new app page
+    5. Type in an app name you want to call the app i called mine happy_cooking
+    6. Choose a region united states or europe, i choose europe
+    7. Press "create app" button.
+    8. The app is now created.
+    
+                Create a new Git repository
+                    
+    1. Type in "cd my-project/" in the terminal
+    2. Next type in "git init"
+    3. After that I typed in "heroku git:remote -a ecommerce-project"     
+        
+        
+    set up Deployment to Heroku in terminal of cloud9
+            
+    1. Go to the "deploy" page in heroku app
+    2. To set up heroku deployment from github to heroku scroll down to "Deploy using Heroku Git" section
+    3. Typed in "heroku login" to the terminal of cloud9
+    5. Typed in "username" of my heroku username to the terminal of cloud9
+    6. Types in "password" of my heroku password to the terminal of cloud9
+    
+
+
+
+            Commit my code to the repository and deploy it to Heroku using cloud9 terminal 
+            
+    1. Open terminal
+    2. Typed in git add .
+    3. Typed in git commit -am "message to explain about the commit you are commiting"
+    4. Typed in git push heroku master
+    5. Its pushed now.
+    
+
+
+
 
 
 ### Credit
