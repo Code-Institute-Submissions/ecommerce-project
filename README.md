@@ -56,13 +56,13 @@ Here I have included wire frames of diffrent pages such as the home, login, bugs
 My design process for me was to draw my wireframes and add them to my project once I had figured out what I needed to create 
 an acheviable site.
 
-* wire frame 1 - homepage
-* wireframe 2 - login page
-* wireframe3 -  register page
-* wireframe 4 - bugs page
-* wireframe 5 - features page 
-* wireframes 6 - cart page
-* wireframe 7 - profile page
+* [homepage](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/homepage.jpg)
+* [login](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/login.jpg)
+* [register](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/register.jpg)
+* [bugs](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/bugs.jpg)
+* [features](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/features.jpg)
+* [cart](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/cart.jpg)
+* [profile](https://github.com/noellebrowne/ecommerce-project/blob/master/wireframes/profile.jpg)
 
 ### Planning 
 
