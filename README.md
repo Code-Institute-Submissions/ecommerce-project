@@ -88,11 +88,10 @@ I decided that I would draw my wire frames with a pen and paper for each of my p
 * [Formatter](https://www.freeformatter.com/html-formatter.html)
 * [Validator](https://validator.w3.org/)
 * [Background Image](https://www.google.com/search?biw=1440&bih=789&tbm=isch&sa=1&ei=L7rBXJbwGouq1fAP7cydwAU&q=pattern+hd+image&oq=pattern+hd+image&gs_l=img.3..0j0i5i30l4j0i8i30l5.83421.88296..88485...3.0..0.121.705.9j1......1....1..gws-wiz-img.......0i7i30j0i7i5i30j0i8i7i30.mIu3VU5om6E#imgrc=d0Xa12HhzygCWM:)
-
+* [whitenoise](whitenoise.evans.io/en/stable/)
 
 ### Testing
 
-#### Manual Testing
 
 There were two options of testing my project the first one was by manual testing it by 
 making sure the navbar worked by clicking on the recipe button to link to  the login and registration pages and 
@@ -192,10 +191,21 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     5. I opened up settings.py in ecommerce folder and put the link into allowed hosts and saved it.
     6. I  reran the open link and it came back as the message it worked so I knew it was now succesfully running.
     
- 
-#### Automated Testing
 
 ## command line
+
+    * git init
+    * pip3 freeze  > requirements.txt
+    * pip install django-forms-bootstrap
+    * pip install pillow
+    * pip install pygal
+    * pip install stripe
+    * heroku login
+    * pip install gunicorn
+    * python manage.py createsuperuser
+    * python manage.py makemigrations
+    * python manage.py migrate
+    
         
         
 
@@ -242,14 +252,14 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
     7. Press "create app" button.
     8. The app is now created.
     
-                Create a new Git repository
+                        Create a new Git repository
                     
     1. Type in "cd my-project/" in the terminal
     2. Next type in "git init"
     3. After that I typed in "heroku git:remote -a ecommerce-project"     
         
         
-    set up Deployment to Heroku in terminal of cloud9
+                        set up Deployment to Heroku in terminal of cloud9
             
     1. Go to the "deploy" page in heroku app
     2. To set up heroku deployment from github to heroku scroll down to "Deploy using Heroku Git" section
@@ -260,7 +270,7 @@ this is reinstalled pillow using this code "pip3 install pillow". I reinstalled 
 
 
 
-            Commit my code to the repository and deploy it to Heroku using cloud9 terminal 
+                    Commit my code to the repository and deploy it to Heroku using cloud9 terminal 
             
     1. Open terminal
     2. Typed in git add .
